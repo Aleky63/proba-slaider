@@ -4,9 +4,35 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Scroll Slider</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="main.css" />
+    <script type="module" src="./ScrollSlider/index.js"></script>
   </head>
   <body>
-    <div class="container">Proba</div>
+    <div class="container">
+      <scroll-slider class="scroll-slider">
+        <scroll-slider-prev-button
+          tabindex="0"
+          class="scroll-slider-prev-button"
+          >Left</scroll-slider-prev-button
+        >
+        <scroll-slider-next-button
+          tabindex="0"
+          class="scroll-slider-next-button"
+          >Right</scroll-slider-next-button
+        >
+        <scroll-slider-track class="scroll-slider-track">
+          <img src="img/1.webp" alt="" class="slide" />
+          <img src="img/2.webp" alt="" class="slide" />
+          <img src="img/3.webp" alt="" class="slide" />
+          <img src="img/4.webp" alt="" class="slide" />
+          <img src="img/5.webp" alt="" class="slide" />
+          <img src="img/6.webp" alt="" class="slide" />
+          <img src="img/7.webp" alt="" class="slide" />
+          <img src="img/8.webp" alt="" class="slide" />
+          <img src="img/9.webp" alt="" class="slide" />
+          <img src="img/10.webp" alt="" class="slide" />
+        </scroll-slider-track>
+      </scroll-slider>
+    </div>
   </body>
 </html>
