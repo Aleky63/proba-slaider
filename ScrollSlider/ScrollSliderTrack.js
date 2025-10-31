@@ -8,38 +8,55 @@ export default class ScrollSliderTrack extends HTMLElement {
     return this.slides.find((slide) => slide.offsetLeft > currentScroll);
   }
 
-  getNextSlideWidht() {
+  getNextSlideWidth() {
     const nextSlide = this.getNextSlide();
 
     if (nextSlide) {
       return nextSlide.offsetLeft - this.scrollLeft;
     }
+
     return 0;
   }
+
   getPrevSlide() {
     const currentScroll = this.scrollLeft;
+
     return [...this.slides]
       .reverse()
       .find((slide) => slide.offsetLeft < currentScroll);
   }
 
-  getPrevSlideWidht() {
+  getPrevSlideWidth() {
     const prevSlide = this.getPrevSlide();
 
     if (prevSlide) {
       return this.scrollLeft - prevSlide.offsetLeft;
     }
+
     return 0;
+  }
+
+  isTrackFinish() {
+    return (
+      Math.ceil(this.scrollLeft + this.offsetWidth) >= this.scrollWidth - 1
+    );
+  }
+
+  isTrackStart() {
+    return this.scrollLeft <= 1;
   }
 
   scrollByAmount(amount) {
     this.scrollBy({ left: amount, behavior: "smooth" });
   }
+
   scrollToNext() {
-    this.scrollByAmount(this.getNextSlideWidht());
+    this.scrollByAmount(this.getNextSlideWidth());
   }
+
   scrollToPrev() {
-    this.scrollByAmount(-this.getPrevSlideWidht());
+    this.scrollByAmount(-this.getPrevSlideWidth());
   }
 }
+
 customElements.define("scroll-slider-track", ScrollSliderTrack);

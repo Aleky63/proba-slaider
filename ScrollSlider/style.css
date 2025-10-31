@@ -1,4 +1,5 @@
 scroll-slider-track {
+  position: relative;
   display: flex;
   overflow-y: hidden;
   overflow-x: auto;
@@ -6,9 +7,17 @@ scroll-slider-track {
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
 }
-scroll-slider-track ::-webkit-scrollbar {
+
+scroll-slider-track::-webkit-scrollbar {
   display: none;
 }
+
 scroll-slider-track > * {
+  flex-shrink: 0;
   scroll-snap-align: start;
+}
+
+scroll-slider-prev-button[hidden],
+scroll-slider-next-button[hidden] {
+  display: none;
 }
